@@ -5,7 +5,7 @@ FROM frekele/debian:stable
 #JDK openjdk-8
 
 RUN apt-get update && \
-    aprt-get install openjdk-8-jdk
+    apt-get install -y openjdk-8-jdk
 
 
 #Jar AND Yaml
