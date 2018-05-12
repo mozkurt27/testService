@@ -1,0 +1,41 @@
+template: Hello, %s!
+defaultName: HaziranYazilim
+objCount: 20
+occUrl: https://ccadmin-test-zbja.oracleoutsourcing.com
+occApplicationKey: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiNjAwODU2Ni04N2VmLTQ5ZmItODJkYy0zMGJmMTI2ZWFiZDciLCJpc3MiOiJhcHBsaWNhdGlvbkF1dGgiLCJleHAiOjE1NTQ1MjY0OTcsImlhdCI6MTUyMjk5MDQ5N30=.5qig+4MsXlQ+vh1yb9flsGXo1qScuTMWwvAHpB2vy4c=
+fphUser: FPH.IMPL
+fphPass: welcome123
+fphContentWsdl: https://egml.fa.us6.oraclecloud.com/appCmmnCompActivitiesActivityManagement/ActivityService?WSDL
+userInfo: '[{"userName":"gratis","pass":"gratis123"},{"userName":"launcher","pass":"launcher123"}]'
+
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+
+  # Logger-specific levels.
+  loggers:
+
+    # Sets the level for 'com.example.app' to DEBUG.
+    com.example.app: DEBUG
+
+    # Redirects SQL logs to a separate file
+    org.hibernate.SQL:
+      level: DEBUG
+
+# Logback's Time Based Rolling Policy - archivedLogFilenamePattern: /tmp/application-%d{yyyy-MM-dd}.log.gz
+# Logback's Size and Time Based Rolling Policy -  archivedLogFilenamePattern: /tmp/application-%d{yyyy-MM-dd}-%i.log.gz
+# Logback's Fixed Window Rolling Policy -  archivedLogFilenamePattern: /tmp/application-%i.log.gz
+
+  appenders:
+    - type: console
+    - type: file
+      threshold: INFO
+      logFormat: "%-6level [%d{dd-MM-yyyy HH:mm:ss}] [%t] %logger{5} - %X{code} %msg %n"
+      currentLogFilename: /u01/imageUploadMService/log/uploadImage.log
+      archivedLogFilenamePattern: /u01/imageUploadMService/log/uploadImage-%d{dd-MM-yyyy}-%i.log.gz
+      archivedFileCount: 5
+      timeZone: Turkey
+      maxFileSize: 20MB
